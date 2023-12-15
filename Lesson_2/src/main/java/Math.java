@@ -1,4 +1,5 @@
 public class Math {
+
     /**
      * Первые две проверки если int c будет переполнена
      */
@@ -26,5 +27,5 @@ public class Math {
         }
         System.out.println("a < b");
     }
-}
 
+}

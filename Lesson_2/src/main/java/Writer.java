@@ -7,5 +7,4 @@ public class Writer {
         System.out.println(BANANA);
         System.out.println(APPLE);
     }
-
 }
