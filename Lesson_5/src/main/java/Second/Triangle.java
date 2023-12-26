@@ -1,0 +1,53 @@
+package Second;
+
+public class Triangle implements Figure {
+    private double side1;
+    private double side2;
+    private double side3;
+    private String fillColor;
+    private String borderColor;
+
+    public Triangle(double side1, double side2, double side3, String fillColor, String borderColor) {
+        this.side1 = side1;
+        this.side2 = side2;
+        this.side3 = side3;
+        this.fillColor = fillColor;
+        this.borderColor = borderColor;
+    }
+
+    public Triangle(double side1, double side2, double side3) {
+        this.side1 = side1;
+        this.side2 = side2;
+        this.side3 = side3;
+    }
+
+    @Override
+    public double getPerimeter() {
+        return side1 + side2 + side3;
+    }
+
+    @Override
+    public double getArea() {
+        double s = getPerimeter() / 2;
+        return Math.sqrt(s * (s - side1) * (s - side2) * (s - side3));
+    }
+
+    @Override
+    public void setFillColor(String color) {
+        fillColor = color;
+    }
+
+    @Override
+    public void setBorderColor(String color) {
+        borderColor = color;
+
+    }
+
+    @Override
+    public void showCharacteristics() {
+        System.out.println(getPerimeter());
+        System.out.println(getArea());
+        System.out.println(fillColor);
+        System.out.println(borderColor);
+    }
+}
