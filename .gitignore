@@ -89,3 +89,5 @@ gradle-app.setting
 
 # Cache of project
 .gradletasknamecache
+/.idea/
+/Lesson_6/gradle/

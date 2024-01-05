@@ -9,11 +9,9 @@ public class CSVDataManager {
 
     public static void save(AppData data, String filePath) {
         try (BufferedWriter writer = new BufferedWriter(new FileWriter(filePath))) {
-            // Записываем заголовок
             writer.write(String.join(DELIMITER, data.getHeader()));
             writer.newLine();
 
-            // Записываем данные
             int[][] dataArray = data.getData();
             for (int[] row : dataArray) {
                 String[] rowValues = new String[row.length];
@@ -30,11 +28,9 @@ public class CSVDataManager {
 
     public static AppData load(String filePath) {
         try (BufferedReader reader = new BufferedReader(new FileReader(filePath))) {
-            // Читаем заголовок
             String headerLine = reader.readLine();
             String[] header = headerLine.split(DELIMITER);
 
-            // Читаем данные
             String dataLine;
             int[][] data = new int[0][];
             int rowIndex = 0;
@@ -48,7 +44,6 @@ public class CSVDataManager {
                 data[rowIndex] = rowData;
                 rowIndex++;
             }
-
             AppData appData = new AppData();
             appData.setHeader(header);
             appData.setData(data);
@@ -56,7 +51,6 @@ public class CSVDataManager {
         } catch (IOException e) {
             e.printStackTrace();
         }
-
         return null;
     }
 
