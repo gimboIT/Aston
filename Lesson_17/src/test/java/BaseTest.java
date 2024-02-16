@@ -17,11 +17,11 @@ public class BaseTest {
     static void setup() {
         DesiredCapabilities capabilities = new DesiredCapabilities();
         capabilities.setCapability(MobileCapabilityType.DEVICE_NAME, "Medium Cake");
-        capabilities.setCapability(MobileCapabilityType.APP, "C:\\Users\\Тимур\\Desktop\\MobileDelete\\src\\test\\resources\\calc.apk");
+        capabilities.setCapability(MobileCapabilityType.APP, "C:\\Users\\Тимур\\IdeaProjects\\Aston\\Lesson_17\\src\\test\\resources\\calc.apk");
         capabilities.setCapability(MobileCapabilityType.NO_RESET, true);
 
         try {
-            driver = new AndroidDriver<>(new URL("http://127.0.0.1:4723/wd/hub"), capabilities);
+            driver = new AndroidDriver<>(new URL("http://0.0.0.0:4723/wd/hub"), capabilities);
             driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
         } catch (MalformedURLException e) {
             System.out.println(e.getMessage());

@@ -1,10 +1,16 @@
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
+import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
+
+import io.qameta.allure.Severity;
+import io.qameta.allure.SeverityLevel;
 
 public class CalcTest extends BaseTest{
 
     @Test
+    @DisplayName("Test +")
+    @Severity(SeverityLevel.BLOCKER)
     void AdditionTest() {
         String result = calcObject
                 .clickOn3()
@@ -16,6 +22,8 @@ public class CalcTest extends BaseTest{
     }
 
     @Test
+    @DisplayName("Test -")
+    @Severity(SeverityLevel.BLOCKER)
     void subtractionTest() {
         String result = calcObject
                 .clickOn3()
@@ -27,6 +35,8 @@ public class CalcTest extends BaseTest{
     }
 
     @Test
+    @DisplayName("Test *")
+    @Severity(SeverityLevel.BLOCKER)
     void multiplicationTest() {
         String result = calcObject
                 .clickOn3()
@@ -38,6 +48,8 @@ public class CalcTest extends BaseTest{
     }
 
     @Test
+    @DisplayName("Test /")
+    @Severity(SeverityLevel.BLOCKER)
     void divisionTest() {
         String result = calcObject
                 .clickOn3()
