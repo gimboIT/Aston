@@ -7,5 +7,6 @@ public class Main {
         ColorPrinter.printColor(5);
         System.out.println("\n");
         Math.compareNumbers(3,4);
+        System.out.println("new commit test");
     }
 }
