@@ -28,7 +28,8 @@ public class BasketPage {
     }
 
     public void addProducts() {
-        waitPriceCounting(1500);
+        driver.findElement(By.cssSelector(".good-info__good-name")).click();
+        driver.findElement(By.cssSelector(".j-close")).click();
         driver.findElements(products).forEach(
                 x -> {
                     String prodName = x.findElement(productName).getText();
@@ -38,16 +39,9 @@ public class BasketPage {
                 }
         );
     }
+
     public double getSum() {
         String sum = driver.findElement(basketSum).getText();
         return Double.parseDouble(sum.replaceAll("[^0-9.]+", ""));
-    }
-
-    public void waitPriceCounting(int time) {
-        try {
-            sleep(time);
-        } catch (InterruptedException e) {
-            throw new RuntimeException(e);
-        }
     }
 }

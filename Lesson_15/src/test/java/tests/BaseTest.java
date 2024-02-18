@@ -12,11 +12,13 @@ import pages.ProductPage;
 
 import java.time.Duration;
 
-public class BaseTest {
+class BaseTest {
+
     public static WebDriver driver;
     public MainPage mainPage = new MainPage(driver);
     public ProductPage productPage = new ProductPage(driver);
     public BasketPage basketPage = new BasketPage(driver);
+
     @BeforeAll
     static void setup() {
         WebDriverManager.chromedriver().setup();
@@ -26,6 +28,7 @@ public class BaseTest {
         driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(5));
         driver.manage().timeouts().pageLoadTimeout(Duration.ofSeconds(5));
     }
+
     @AfterAll
     static void close() {
         driver.quit();
