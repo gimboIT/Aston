@@ -10,13 +10,15 @@ import org.openqa.selenium.chrome.ChromeDriver;
 import java.time.Duration;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 
-public class OnlinePaymentTest {
+class OnlinePaymentTest {
 
     static WebDriver driver;
     String phoneNumber = "297777777";
     String amount = "100";
     String email = "test@mail.ru";
+
     @BeforeAll
     static void configAndRemoveCookie() {
         WebDriverManager.chromedriver().setup();
@@ -24,6 +26,7 @@ public class OnlinePaymentTest {
         driver.get("https://www.mts.by/");
         driver.findElement(By.cssSelector("#cookie-agree")).click();
     }
+
     @BeforeEach
     void openSite() {
         driver.get("https://www.mts.by/");
@@ -43,18 +46,11 @@ public class OnlinePaymentTest {
     }
 
     @ParameterizedTest
-    @ValueSource(strings = {
-            "Visa",
-            "Verified By Visa",
-            "MasterCard",
-            "MasterCard Secure Code",
-            "Белкарт",
-            "МИР"
-    })
+    @ValueSource(strings = {"Visa", "Verified By Visa", "MasterCard", "MasterCard Secure Code", "Белкарт", "МИР"})
     @DisplayName("Проверяем наличие логотипов платёжных систем")
     void logoTest(String partner) {
         WebElement logoElement = driver.findElement(By.xpath("//img[@alt='" + partner + "']"));
-        logoElement.isDisplayed();
+        assertTrue(logoElement.isDisplayed());
     }
 
     @Test
@@ -79,6 +75,6 @@ public class OnlinePaymentTest {
         WebElement iframe = driver.findElement(By.cssSelector(".bepaid-iframe"));
         driver.switchTo().frame(iframe);
 
-        driver.findElement(By.cssSelector(".app-wrapper__content")).isEnabled();
+        assertTrue(driver.findElement(By.cssSelector(".app-wrapper__content")).isEnabled());
     }
 }
